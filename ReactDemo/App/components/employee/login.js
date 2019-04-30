@@ -22,10 +22,12 @@ class Login extends Component {
 	navigate(){
       
       console.log("this is Email", this.state.userId);
+      console.log("this is Email", this.state.userId=== this.state.match_email);
       console.log("this is pass", this.state.password);
+      console.log("this is Email", this.state.password=== this.state.match_password);
     if(this.state.userId==null || this.state.password ==null){
       Alert.alert("Please Enter Email and Password");
-    } else if(this.state.userId===this.state.match_email || this.state.match_password===this.state.match_password){
+    } else if(this.state.userId===this.state.match_email && this.state.password===this.state.match_password){
       this.props.navigation.navigate("EmployeeList");
     }else{
       Alert.alert("Please Enter correct Email and Password");

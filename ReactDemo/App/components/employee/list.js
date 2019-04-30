@@ -64,9 +64,9 @@ class EmployeeList extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			tableHead: ['Name', 'Age', 'Gender', 'E-Mail', 'Phone No'],
+			tableHead: ['ID','Name', 'Age', 'Gender', 'E-Mail', 'Phone No'],
       tableData: [],
-      widthArr: [120, 120, 120, 120, 120],
+      widthArr: [120,120, 120, 120, 120, 120],
       isLoading:true
 		}
 	}
@@ -76,19 +76,22 @@ class EmployeeList extends Component {
 	}
 
   componentDidMount() {
-    var name=[]; var age =[]; var email=[]; var gender=[]; var phone =[]; var tbl_data=[];
+     var tbl_data=[];
     for(i=0;i<emp_data.length;i++){
+      var name=[];
+      name.push(emp_data[i].id);
       name.push(emp_data[i].name);
-      age.push(emp_data[i].age);
-      email.push(emp_data[i].email);
-      gender.push(emp_data[i].gender);
-      phone.push(emp_data[i].phone);
+      name.push(emp_data[i].age);
+      name.push(emp_data[i].gender);
+      name.push(emp_data[i].email);
+      name.push(emp_data[i].phoneNo);
+      tbl_data.push(name);
     }
-    tbl_data.push(name);
-    tbl_data.push(age);
-    tbl_data.push(gender)
-    tbl_data.push(email);
-    tbl_data.push(phone);
+    
+    // tbl_data.push(age);
+    // tbl_data.push(gender)
+    // tbl_data.push(email);
+    // tbl_data.push(phone);
     this.setState({tableData:tbl_data,isLoading:false});
 
     console.log("table data", this.state.tableData);
