@@ -1,3 +1,3 @@
-# React-Demo
+# Clone project
 # run npm install
-# react-native run-ios
+# run react-native run-ios
